@@ -1,0 +1,910 @@
+// WL_ACT1.C
+
+#include "wl_def.h"
+#pragma hdrstop
+
+/*
+=============================================================================
+
+                                                        STATICS
+
+=============================================================================
+*/
+
+
+statobj_t       statobjlist[MAXSTATS];
+statobj_t       *laststatobj;
+
+pwall_t             pwalls_[MAXPWALLS];
+pwall_t             *lastpwall;
+short                 pwallnum;
+
+
+struct
+{
+    short      picnum;
+    wl_stat_t  type;
+    uint32_t   specialFlags;    // they are ORed to the statobj_t flags
+} statinfo[] =
+{
+    {SPR_STAT_0},                           // puddle          spr1v
+    {SPR_STAT_1,block},                     // Green Barrel    "
+    {SPR_STAT_2,block},                     // Table/chairs    "
+    {SPR_STAT_3,block,FL_FULLBRIGHT},       // Floor lamp      "
+    {SPR_STAT_4,none,FL_FULLBRIGHT},        // Chandelier      "
+    {SPR_STAT_5a,block},                     // Hanged man      "
+    {SPR_STAT_6,bo_alpo},                   // Bad food        "
+    {SPR_STAT_7,block},                     // Red pillar      "
+    //
+    // NEW PAGE
+    //
+    {SPR_STAT_8,block},                     // Tree            spr2v
+    {SPR_STAT_9},                           // Skeleton flat   "
+    {SPR_STAT_10,block},                    // Sink            " (SOD:gibs)
+    {SPR_STAT_11,block},                    // Potted plant    "
+    {SPR_STAT_12,block},                    // Urn             "
+    {SPR_STAT_13,block},                    // Bare table      "
+    {SPR_STAT_14,none,FL_FULLBRIGHT},       // Ceiling light   "
+    {SPR_STAT_15},                          // Kitchen stuff   "
+    //
+    // NEW PAGE
+    //
+    {SPR_STAT_16,block},                    // suit of armor   spr3v
+    {SPR_STAT_17,block},                    // Hanging cage    "
+    {SPR_STAT_18,block},                    // SkeletoninCage  "
+    {SPR_STAT_19},                          // Skeleton relax  "
+    {SPR_STAT_20,bo_key1},                  // Key 1           "
+    {SPR_STAT_21,bo_key2},                  // Key 2           "
+    {SPR_STAT_22,block},                    // stuff             (SOD:gibs)
+    {SPR_STAT_23},                          // stuff
+    //
+    // NEW PAGE
+    //
+    {SPR_STAT_24,bo_food},                  // Good food       spr4v
+    {SPR_STAT_25,bo_firstaid},              // First aid       "
+    {SPR_STAT_26,bo_clip},                  // Clip            "
+    {SPR_STAT_27,bo_machinegun},            // Machine gun     "
+    {SPR_STAT_28,bo_chaingun},              // Gatling gun     "
+    {SPR_STAT_29,bo_rainbower},                 // Cross           "         "
+    {SPR_STAT_30,bo_moneybill},             // 20 dollar token bill
+    {SPR_STAT_31,bo_rbowtank},                 // Bible           "
+    {SPR_STAT_32,bo_rarechest},            // Chest of goods
+    //
+    // NEW PAGE
+    //
+    {SPR_STAT_33,bo_fullheal,FL_FULLBRIGHT},// one up          "
+    {SPR_STAT_34},                  // gibs            "
+    {SPR_STAT_35,block},                    // barrel          "
+    {SPR_STAT_36,block},                    // well            "
+    {SPR_STAT_37,block},                    // Empty well      "
+    {SPR_STAT_38},                  // Gibs 2          "
+    {SPR_STAT_39,block},                    // flag            "
+    //
+    // NEW PAGE
+    //
+    {SPR_STAT_40},                    // Call Apogee          spr7v
+    //
+    // NEW PAGE
+    //
+    {SPR_STAT_41},                          // junk            "
+    {SPR_STAT_42},                          // junk            "
+    {SPR_STAT_43},                          // junk            "
+    {SPR_STAT_44},                          // pots            "
+    {SPR_STAT_45a,block,FL_FULLBRIGHT},     // stove           "
+    {SPR_STAT_46,block},                    // spears          "
+    {SPR_STAT_47a,none,FL_FULLBRIGHT},      // Live wires (moved to thinking obj)
+    //
+    // NEW PAGE
+    //
+    
+    // Bits
+    {SPR_STAT_48,bo_money1b},
+    {SPR_STAT_49,bo_money5b},
+    {SPR_STAT_50,bo_money10b},
+    
+    // Regular Glass
+    {SPR_GLASS_A,block,FL_DIR_HORIZ_MID | FL_SHOOTABLE},
+    {SPR_GLASS_A,block,FL_DIR_VERT_MID | FL_SHOOTABLE},
+    
+    // Regular Mesh
+    {SPR_MESH_A,block,FL_DIR_HORIZ_MID},
+    {SPR_MESH_A,block,FL_DIR_VERT_MID},
+    {SPR_MESH_B,block,FL_DIR_HORIZ_MID},
+    {SPR_MESH_B,block,FL_DIR_VERT_MID},
+    
+    // Broken Mesh
+    {SPR_MESH_C,none,FL_DIR_HORIZ_MID},
+    {SPR_MESH_C,none,FL_DIR_VERT_MID},
+    
+    // Broken glass
+    {SPR_GLASS_BROKEN,none,FL_DIR_HORIZ_MID},
+    {SPR_GLASS_BROKEN,none,FL_DIR_VERT_MID},
+    
+    {SPR_STAT_47e}, // Dead wires
+    
+    
+    // Dropped, Used Ammo
+    {SPR_STAT_26,bo_clip2},                 // Clip            "
+    {-1}                                    // terminator
+};
+
+/*
+===============
+=
+= InitStaticList
+=
+===============
+*/
+
+void InitStaticList (void)
+{
+    laststatobj = &statobjlist[0];
+}
+
+/*
+===============
+=
+= SpawnStatic
+=
+===============
+*/
+
+void SpawnStatic (int tilex, int tiley, int type)
+{
+    laststatobj->shapenum = statinfo[type].picnum;
+    laststatobj->tilex = tilex;
+    laststatobj->tiley = tiley;
+    laststatobj->visspot = &spotvis[tilex][tiley];
+
+    switch (statinfo[type].type)
+    {
+        case block:
+            actorat[tilex][tiley] = (objtype *) 64;          // consider it a blocking tile
+        case none:
+            laststatobj->flags = 0;
+            break;
+        
+        case    bo_rarechest:
+        case    bo_fullheal:
+            if (!loadedgame)
+                gamestate.treasuretotal++;
+
+        case    bo_firstaid:
+        case    bo_key1:
+        case    bo_key2:
+        case    bo_key3:
+        case    bo_key4:
+        case    bo_clip:
+        case    bo_25clip:
+        case    bo_machinegun:
+        case    bo_chaingun:
+        case    bo_rainbower:
+        case    bo_rbowtank:
+        case    bo_food:
+        case    bo_alpo:
+        case    bo_gibs:
+        case    bo_spear:
+        case    bo_moneybill:
+        case    bo_money1b:
+        case    bo_money5b:
+        case    bo_money10b:
+            laststatobj->flags = FL_BONUS;
+            laststatobj->itemnumber = statinfo[type].type;
+            break;
+        default:
+            break;
+    }
+
+    laststatobj->flags |= statinfo[type].specialFlags;
+
+    laststatobj++;
+
+    if (laststatobj == &statobjlist[MAXSTATS])
+        Quit ("Too many static objects!\n");
+}
+
+
+/*
+===============
+=
+= PlaceItemType
+=
+= Called during game play to drop actors' items.  It finds the proper
+= item number based on the item type (bo_???).  If there are no free item
+= spots, nothing is done.
+=
+===============
+*/
+
+void PlaceItemType (int itemtype, int tilex, int tiley)
+{
+    int type;
+    statobj_t *spot;
+
+    //
+    // find the item number
+    //
+    for (type=0; ; type++)
+    {
+        if (statinfo[type].picnum == -1)                    // end of list
+            Quit ("PlaceItemType: couldn't find type!");
+        if (statinfo[type].type == itemtype)
+            break;
+    }
+
+    //
+    // find a spot in statobjlist to put it in
+    //
+    for (spot=&statobjlist[0]; ; spot++)
+    {
+        if (spot==laststatobj)
+        {
+            if (spot == &statobjlist[MAXSTATS])
+                return;                                     // no free spots
+            laststatobj++;                                  // space at end
+            break;
+        }
+
+        if (spot->shapenum == -1)                           // -1 is a free spot
+            break;
+    }
+    //
+    // place it
+    //
+    spot->shapenum = statinfo[type].picnum;
+    spot->tilex = tilex;
+    spot->tiley = tiley;
+    spot->visspot = &spotvis[tilex][tiley];
+    spot->flags = FL_BONUS | statinfo[type].specialFlags;
+    spot->itemnumber = statinfo[type].type;
+}
+
+
+
+/*
+=============================================================================
+
+                                  DOORS
+
+doorobjlist[] holds most of the information for the doors
+
+doorposition[] holds the amount the door is open, ranging from 0 to 0xffff
+        this is directly accessed by AsmRefresh during rendering
+
+The number of doors is limited to 64 because a spot in tilemap holds the
+        door number in the low 6 bits, with the high bit meaning a door center
+        and bit 6 meaning a door side tile
+
+Open doors conect two areas, so sounds will travel between them and sight
+        will be checked when the player is in a connected area.
+
+Areaconnect is incremented/decremented by each door. If >0 they connect
+
+Every time a door opens or closes the areabyplayer matrix gets recalculated.
+        An area is true if it connects with the player's current spor.
+
+=============================================================================
+*/
+
+#define DOORWIDTH       0x7800
+#define OPENTICS        300
+
+doorobj_t       doorobjlist[MAXDOORS],*lastdoorobj;
+short           doornum, opennum[MAXDOORS];
+short           pwalls_swx[64], pwalls_swy[64];
+controldir_t             pwalls_swd[64];
+
+word            doorposition[MAXDOORS];             // leading edge of door 0=closed
+                                                    // 0xffff = fully open
+
+byte            areaconnect[NUMAREAS][NUMAREAS];
+
+boolean         areabyplayer[NUMAREAS];
+
+
+/*
+==============
+=
+= ConnectAreas
+=
+= Scans outward from playerarea, marking all connected areas
+=
+==============
+*/
+
+void RecursiveConnect (int areanumber)
+{
+    int i;
+
+    for (i=0;i<NUMAREAS;i++)
+    {
+        if (areaconnect[areanumber][i] && !areabyplayer[i])
+        {
+            areabyplayer[i] = true;
+            RecursiveConnect (i);
+        }
+    }
+}
+
+
+void ConnectAreas (void)
+{
+    memset (areabyplayer,0,sizeof(areabyplayer));
+    areabyplayer[player->areanumber] = true;
+    RecursiveConnect (player->areanumber);
+}
+
+
+void InitAreas (void)
+{
+    memset (areabyplayer,0,sizeof(areabyplayer));
+    if (player->areanumber < NUMAREAS)
+        areabyplayer[player->areanumber] = true;
+}
+
+
+
+/*
+===============
+=
+= InitDoorList
+=
+===============
+*/
+
+void InitDoorList (void)
+{
+    memset (areabyplayer,0,sizeof(areabyplayer));
+    memset (areaconnect,0,sizeof(areaconnect));
+
+    lastdoorobj = &doorobjlist[0];
+    doornum = 0;
+}
+
+
+/*
+===============
+=
+= SpawnDoor
+=
+===============
+*/
+
+void SpawnDoor (int tilex, int tiley, boolean vertical, int lock)
+{
+    word *map;
+    int tag;
+
+    if (doornum==MAXDOORS)
+        Quit ("64+ doors on level!");
+    
+    tag = MAPSPOT(tilex, tiley, 3);
+
+    doorposition[doornum] = 0;              // doors start out fully closed
+    lastdoorobj->tilex = tilex;
+    lastdoorobj->tiley = tiley;
+    lastdoorobj->vertical = vertical;
+    
+    if (tag > 0)
+    {
+        lastdoorobj->tag = tag;
+        lastdoorobj->lock = dr_switchopd;
+    }
+    else
+    {
+        lastdoorobj->tag = 0;
+        lastdoorobj->lock = lock;
+    }
+    
+    lastdoorobj->action = dr_closed;
+
+    actorat[tilex][tiley] = (objtype *)(uintptr_t)(doornum | 0x80);   // consider it a solid wall
+
+    //
+    // make the door tile a special tile, and mark the adjacent tiles
+    // for door sides
+    //
+    tilemap[tilex][tiley] = doornum | 0x80;
+    map = mapsegs[0] + (tiley<<mapshift) +tilex;
+    if (vertical)
+    {
+        *map = *(map-1);                        // set area number
+        tilemap[tilex][tiley-1] |= 0x40;
+        tilemap[tilex][tiley+1] |= 0x40;
+    }
+    else
+    {
+        *map = *(map-mapwidth);                                 // set area number
+        tilemap[tilex-1][tiley] |= 0x40;
+        tilemap[tilex+1][tiley] |= 0x40;
+    }
+
+    doornum++;
+    lastdoorobj++;
+}
+
+//===========================================================================
+
+/*
+=====================
+=
+= OpenDoor
+=
+=====================
+*/
+
+void OpenDoor (int door)
+{
+    if (doorobjlist[door].action == dr_open)
+        doorobjlist[door].ticcount = 0;         // reset open time
+    else
+        doorobjlist[door].action = dr_opening;  // start it opening
+}
+
+
+/*
+=====================
+=
+= CloseDoor
+=
+=====================
+*/
+
+void CloseDoor (int door)
+{
+    int     tilex,tiley,area;
+    objtype *check;
+
+    //
+    // don't close on anything solid
+    //
+    tilex = doorobjlist[door].tilex;
+    tiley = doorobjlist[door].tiley;
+
+    if (actorat[tilex][tiley])
+        return;
+
+    if (player->tilex == tilex && player->tiley == tiley)
+        return;
+
+    if (doorobjlist[door].vertical)
+    {
+        if ( player->tiley == tiley )
+        {
+            if ( ((player->x+MINDIST) >>TILESHIFT) == tilex )
+                return;
+            if ( ((player->x-MINDIST) >>TILESHIFT) == tilex )
+                return;
+        }
+        check = actorat[tilex-1][tiley];
+        if (ISPOINTER(check) && ((check->x+MINDIST) >> TILESHIFT) == tilex )
+            return;
+        check = actorat[tilex+1][tiley];
+        if (ISPOINTER(check) && ((check->x-MINDIST) >> TILESHIFT) == tilex )
+            return;
+    }
+    else if (!doorobjlist[door].vertical)
+    {
+        if (player->tilex == tilex)
+        {
+            if ( ((player->y+MINDIST) >>TILESHIFT) == tiley )
+                return;
+            if ( ((player->y-MINDIST) >>TILESHIFT) == tiley )
+                return;
+        }
+        check = actorat[tilex][tiley-1];
+        if (ISPOINTER(check) && ((check->y+MINDIST) >> TILESHIFT) == tiley )
+            return;
+        check = actorat[tilex][tiley+1];
+        if (ISPOINTER(check) && ((check->y-MINDIST) >> TILESHIFT) == tiley )
+            return;
+    }
+
+
+    //
+    // play door sound if in a connected area
+    //
+    area = *(mapsegs[0] + (doorobjlist[door].tiley<<mapshift)
+        +doorobjlist[door].tilex)-AREATILE;
+    if (areabyplayer[area])
+    {
+        PlaySoundLocTile(DOOR_SND,doorobjlist[door].tilex,doorobjlist[door].tiley); // JAB
+    }
+
+    doorobjlist[door].action = dr_closing;
+    //
+    // make the door space solid
+    //
+    actorat[tilex][tiley] = (objtype *)(uintptr_t)(door | 0x80);
+}
+
+
+
+/*
+=====================
+=
+= OperateDoor
+=
+= The player wants to change the door's direction
+=
+=====================
+*/
+
+void OperateDoor (int door)
+{
+    int lock;
+
+    lock = doorobjlist[door].lock;
+    if ((lock >= dr_lock1 && lock <= dr_lock4) || lock == dr_switchopd)
+    {
+        if ( ! (gamestate.keys & (1 << (lock-dr_lock1) ) ) || lock == dr_switchopd )
+        {
+            if(doorobjlist[door].action == dr_closed)
+                GetMessage("It is locked!");
+            // SD_PlaySound (NOWAYSND);                // locked
+            return;
+        }
+    }
+
+    switch (doorobjlist[door].action)
+    {
+        case dr_closed:
+        case dr_closing:
+            OpenDoor (door);
+            break;
+        case dr_open:
+        case dr_opening:
+            CloseDoor (door);
+            break;
+    }
+}
+
+
+//===========================================================================
+
+/*
+===============
+=
+= DoorOpen
+=
+= Close the door after three seconds
+=
+===============
+*/
+
+void DoorOpen (int door)
+{
+    if ( (doorobjlist[door].ticcount += (short) tics) >= OPENTICS && doorobjlist[door].lock != dr_switchopd)
+        CloseDoor (door);
+}
+
+
+
+/*
+===============
+=
+= DoorOpening
+=
+===============
+*/
+
+void DoorOpening (int door)
+{
+    unsigned area1,area2;
+    word *map;
+    int32_t position;
+
+    position = doorposition[door];
+    if (!position)
+    {
+        //
+        // door is just starting to open, so connect the areas
+        //
+        map = mapsegs[0] + (doorobjlist[door].tiley<<mapshift)
+            +doorobjlist[door].tilex;
+
+        if (doorobjlist[door].vertical)
+        {
+            area1 = *(map+1);
+            area2 = *(map-1);
+        }
+        else
+        {
+            area1 = *(map-mapwidth);
+            area2 = *(map+mapwidth);
+        }
+        area1 -= AREATILE;
+        area2 -= AREATILE;
+
+        if (area1 < NUMAREAS && area2 < NUMAREAS)
+        {
+            areaconnect[area1][area2]++;
+            areaconnect[area2][area1]++;
+
+            if (player->areanumber < NUMAREAS)
+                ConnectAreas ();
+
+            if (areabyplayer[area1])
+                PlaySoundLocTile(DOOR_SND,doorobjlist[door].tilex,doorobjlist[door].tiley);  // JAB
+        }
+    }
+
+    //
+    // slide the door by an adaptive amount
+    //
+    position += tics<<10;
+    if (position >= 0xffff)
+    {
+        //
+        // door is all the way open
+        //
+        position = 0xffff;
+        doorobjlist[door].ticcount = 0;
+        doorobjlist[door].action = dr_open;
+        actorat[doorobjlist[door].tilex][doorobjlist[door].tiley] = 0;
+    }
+
+    doorposition[door] = (word) position;
+}
+
+
+/*
+===============
+=
+= DoorClosing
+=
+===============
+*/
+
+void DoorClosing (int door)
+{
+    unsigned area1,area2;
+    word *map;
+    int32_t position;
+    int tilex,tiley;
+
+    tilex = doorobjlist[door].tilex;
+    tiley = doorobjlist[door].tiley;
+
+    if ( ((int)(uintptr_t)actorat[tilex][tiley] != (door | 0x80))
+        || (player->tilex == tilex && player->tiley == tiley) )
+    {                       // something got inside the door
+        OpenDoor (door);
+        return;
+    };
+
+    position = doorposition[door];
+
+    //
+    // slide the door by an adaptive amount
+    //
+    position -= tics<<10;
+    if (position <= 0)
+    {
+        //
+        // door is closed all the way, so disconnect the areas
+        //
+        position = 0;
+
+        doorobjlist[door].action = dr_closed;
+
+        map = mapsegs[0] + (doorobjlist[door].tiley<<mapshift) + doorobjlist[door].tilex;
+
+        if (doorobjlist[door].vertical)
+        {
+            area1 = *(map+1);
+            area2 = *(map-1);
+        }
+        else
+        {
+            area1 = *(map-mapwidth);
+            area2 = *(map+mapwidth);
+        }
+        area1 -= AREATILE;
+        area2 -= AREATILE;
+
+        if (area1 < NUMAREAS && area2 < NUMAREAS)
+        {
+            areaconnect[area1][area2]--;
+            areaconnect[area2][area1]--;
+
+            if (player->areanumber < NUMAREAS)
+                ConnectAreas ();
+        }
+    }
+
+    doorposition[door] = (word) position;
+}
+
+
+
+
+/*
+=====================
+=
+= MoveDoors
+=
+= Called from PlayLoop
+=
+=====================
+*/
+
+void MoveDoors (void)
+{
+    int door;
+
+    if (gamestate.victoryflag)              // don't move door during victory sequence
+        return;
+
+    for (door = 0; door < doornum; door++)
+    {
+        switch (doorobjlist[door].action)
+        {
+            case dr_open:
+                DoorOpen (door);
+                break;
+
+            case dr_opening:
+                DoorOpening(door);
+                break;
+
+            case dr_closing:
+                DoorClosing(door);
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+
+/*
+=============================================================================
+
+                                PUSHABLE WALLS
+
+=============================================================================
+*/
+
+pwall_t pwall[MAXPWALLS];
+int dirs[4][2]={{0,-1},{1,0},{0,1},{-1,0}};
+/*
+ ===============
+ =
+ = PushWall
+ =
+ ===============
+ */
+
+int GetFreePush(void)
+{
+    for (int i = 0; i < MAXPWALLS; i++)
+        if (!pwall[i].active)
+            return i;
+    return -1;
+}
+
+void PushWall (int checkx, int checky, int dir, boolean secret)
+{
+    int oldtile, dx, dy;
+    
+    int index = GetFreePush();
+    if (index == -1)
+        return;
+    
+    oldtile = tilemap[checkx][checky];
+    if (!oldtile)
+        return;
+    
+    dx = dirs[dir][0];
+    dy = dirs[dir][1];
+    
+    if (actorat[checkx+dx][checky+dy])
+    {
+        // SD_PlaySound (NOWAYSND);
+        return;
+    }
+    actorat[checkx+dx][checky+dy] = (objtype *)(uintptr_t) (tilemap[checkx+dx][checky+dy] = oldtile);
+    
+    if (secret)
+        gamestate.secretcount++;
+    
+    pwall[index].x = checkx;
+    pwall[index].y = checky;
+    pwall[index].dir = dir;
+    pwall[index].state = 1;
+    pwall[index].pos = 0;
+    pwall[index].tile = tilemap[checkx][checky];
+    pwall[index].active = true;
+    tilemap[checkx][checky] = 64;
+    tilemap[checkx+dx][checky+dy] = 64;
+    *(mapsegs[1]+(checky<<mapshift)+checkx) = 0;   // remove P tile info
+    *(mapsegs[0]+(checky<<mapshift)+checkx) = *(mapsegs[0]+(player->tiley<<mapshift)+player->tilex); // set correct floorcode (BrotherTank's fix)
+    
+    PlaySoundLocTile (PUSHWALLSND, checkx, checky);
+    
+    if (achievements_unlocked[0] == false && secret == true)
+    {
+        SetAchievement(0);
+    }
+}
+
+/*
+ =================
+ =
+ = MovePWalls
+ =
+ =================
+ */
+
+void MovePWalls (void)
+{
+    for (int i = 0; i < MAXPWALLS; i++)
+    {
+        int oldblock,oldtile;
+        
+        if (!pwall[i].state || !pwall[i].active)
+            continue;
+        
+        oldblock = pwall[i].state/128;
+        
+        pwall[i].state += (word)tics<<1;
+        
+        if (pwall[i].state/128 != oldblock)
+        {
+            // block crossed into a new block
+            oldtile = pwall[i].tile;
+            
+            //
+            // the tile can now be walked into
+            //
+            tilemap[pwall[i].x][pwall[i].y] = 0;
+            actorat[pwall[i].x][pwall[i].y] = 0;
+            *(mapsegs[0]+(pwall[i].y<<mapshift)+pwall[i].x) = player->areanumber+AREATILE;
+            
+            int dx=dirs[pwall[i].dir][0], dy=dirs[pwall[i].dir][1];
+            //
+            // see if it should be pushed farther
+            //
+            if (pwall[i].state>=256)
+            {
+                //
+                // the block has been pushed two tiles
+                //
+                pwall[i].state = 0;
+                pwall[i].active = false;
+                tilemap[pwall[i].x+dx][pwall[i].y+dy] = oldtile;
+                return;
+            }
+            else
+            {
+                int xl,yl,xh,yh;
+                xl = (player->x-PLAYERSIZE) >> TILESHIFT;
+                yl = (player->y-PLAYERSIZE) >> TILESHIFT;
+                xh = (player->x+PLAYERSIZE) >> TILESHIFT;
+                yh = (player->y+PLAYERSIZE) >> TILESHIFT;
+                
+                pwall[i].x += dx;
+                pwall[i].y += dy;
+                
+                if (actorat[pwall[i].x+dx][pwall[i].y+dy]
+                    || (xl<=pwall[i].x+dx && pwall[i].x+dx<=xh && yl<=pwall[i].y+dy && pwall[i].y+dy<=yh))
+                {
+                    pwall[i].state = 0;
+                    pwall[i].active = false;
+                    tilemap[pwall[i].x][pwall[i].y] = oldtile;
+                    return;
+                }
+                actorat[pwall[i].x+dx][pwall[i].y+dy] = (objtype *)(uintptr_t) (tilemap[pwall[i].x+dx][pwall[i].y+dy] = oldtile);
+                tilemap[pwall[i].x+dx][pwall[i].y+dy] = 64;
+            }
+        }
+        
+        pwall[i].pos = (pwall[i].state/2)&63;
+    }
+}
+
+void MapSquareChange(int checkx, int checky, int32_t value, int PlaneNumber)
+{
+    *(mapsegs[PlaneNumber]+(checky<<mapshift)+checkx) = value;
+}

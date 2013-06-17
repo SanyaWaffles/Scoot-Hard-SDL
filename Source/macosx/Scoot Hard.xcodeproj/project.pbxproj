@@ -1,0 +1,966 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		002F39FA09D0881F00EBEB88 /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002F39F909D0881F00EBEB88 /* SDL.framework */; };
+		002F3A2E09D0888800EBEB88 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 002F3A2C09D0888800EBEB88 /* SDLMain.m */; };
+		2616F8E315DA4E1D009ED4B1 /* SDL.framework in Copy Frameworks into .app bundle */ = {isa = PBXBuildFile; fileRef = 002F39F909D0881F00EBEB88 /* SDL.framework */; };
+		2616F8E415DA4E1D009ED4B1 /* SDL_mixer.framework in Copy Frameworks into .app bundle */ = {isa = PBXBuildFile; fileRef = D901F4C10FC0DB520040C290 /* SDL_mixer.framework */; };
+		2626330015E0774F00E0D1B5 /* MARCH.ogg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 262632FC15E0772300E0D1B5 /* MARCH.ogg */; };
+		2626330115E0774F00E0D1B5 /* RFACTORY.ogg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 262632FD15E0772300E0D1B5 /* RFACTORY.ogg */; };
+		2626335215E085FE00E0D1B5 /* achnoise.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626334E15E080C400E0D1B5 /* achnoise.wav */; };
+		2626335315E085FE00E0D1B5 /* door.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626333015E07B4200E0D1B5 /* door.wav */; };
+		2626335415E085FE00E0D1B5 /* genpkup.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626334A15E07C5000E0D1B5 /* genpkup.wav */; };
+		2626335515E085FE00E0D1B5 /* thud.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626334615E07C3100E0D1B5 /* thud.wav */; };
+		2626335615E085FE00E0D1B5 /* pushwall.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626334415E07C2000E0D1B5 /* pushwall.wav */; };
+		2626335715E085FE00E0D1B5 /* keypkup.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626333A15E07BB100E0D1B5 /* keypkup.wav */; };
+		2626335815E085FE00E0D1B5 /* bossgun.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626333615E07B8400E0D1B5 /* bossgun.wav */; };
+		2626335915E085FE00E0D1B5 /* ammoup.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626333415E07B7400E0D1B5 /* ammoup.wav */; };
+		2626335A15E085FE00E0D1B5 /* switch.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626332E15E07B0E00E0D1B5 /* switch.wav */; };
+		2626335B15E0861500E0D1B5 /* flamfire.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626334C15E0800C00E0D1B5 /* flamfire.wav */; };
+		2626335C15E0861500E0D1B5 /* taser.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626334815E07C4500E0D1B5 /* taser.wav */; };
+		2626335D15E0861500E0D1B5 /* explode.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626334015E07C0500E0D1B5 /* explode.wav */; };
+		2626335E15E0861500E0D1B5 /* rockfire.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626334115E07C0500E0D1B5 /* rockfire.wav */; };
+		2626335F15E0861500E0D1B5 /* pistfire.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626333E15E07BF300E0D1B5 /* pistfire.wav */; };
+		2626336015E0861500E0D1B5 /* smg_fire.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626333C15E07BD200E0D1B5 /* smg_fire.wav */; };
+		2626336115E0861500E0D1B5 /* cgunfire.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626333815E07B9600E0D1B5 /* cgunfire.wav */; };
+		2626336315E0862400E0D1B5 /* b3_bitch.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626332715E07AA800E0D1B5 /* b3_bitch.wav */; };
+		2626336415E0862400E0D1B5 /* b3_see.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626332815E07AA800E0D1B5 /* b3_see.wav */; };
+		2626336515E0862400E0D1B5 /* b3_swell.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626332915E07AA800E0D1B5 /* b3_swell.wav */; };
+		2626336715E0863200E0D1B5 /* der_die.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626332415E07A8E00E0D1B5 /* der_die.wav */; };
+		2626336915E0864300E0D1B5 /* b2_die.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626331F15E07A7200E0D1B5 /* b2_die.wav */; };
+		2626336A15E0864300E0D1B5 /* b2_see.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626332015E07A7200E0D1B5 /* b2_see.wav */; };
+		2626336C15E0865500E0D1B5 /* b1_see.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626331A15E07A4B00E0D1B5 /* b1_see.wav */; };
+		2626336D15E0865500E0D1B5 /* b1_die.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626331B15E07A4B00E0D1B5 /* b1_die.wav */; };
+		2626336F15E0865F00E0D1B5 /* pp_die.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626331715E07A1800E0D1B5 /* pp_die.wav */; };
+		2626337015E0865F00E0D1B5 /* pp_attk.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626331515E07A0100E0D1B5 /* pp_attk.wav */; };
+		2626337115E0865F00E0D1B5 /* pp_see2.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626331315E079DB00E0D1B5 /* pp_see2.wav */; };
+		2626337215E0865F00E0D1B5 /* pp_see1.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626331115E079C900E0D1B5 /* pp_see1.wav */; };
+		2626337415E0867D00E0D1B5 /* g_die1.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626330415E0792F00E0D1B5 /* g_die1.wav */; };
+		2626337515E0867D00E0D1B5 /* g_die2.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626330515E0792F00E0D1B5 /* g_die2.wav */; };
+		2626337615E0867D00E0D1B5 /* g_die3.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626330615E0792F00E0D1B5 /* g_die3.wav */; };
+		2626337715E0867D00E0D1B5 /* g_see1.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626330715E0792F00E0D1B5 /* g_see1.wav */; };
+		2626337815E0867D00E0D1B5 /* g_see2.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626330815E0792F00E0D1B5 /* g_see2.wav */; };
+		2626337915E0867D00E0D1B5 /* g_see3.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2626330915E0792F00E0D1B5 /* g_see3.wav */; };
+		262AFE5615D2F67300E9B7A6 /* rfactory.icns in Resources */ = {isa = PBXBuildFile; fileRef = 262AFE5515D2F67300E9B7A6 /* rfactory.icns */; };
+		264C170815CCF9A9006A961C /* GAMEMAPS.RF6 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 264C16F715CCF990006A961C /* GAMEMAPS.RF6 */; };
+		264C170915CCF9A9006A961C /* MAPHEAD.RF6 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 264C16F815CCF990006A961C /* MAPHEAD.RF6 */; };
+		264C170A15CCF9A9006A961C /* VGADICT.RF6 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 264C16F915CCF990006A961C /* VGADICT.RF6 */; };
+		264C170B15CCF9A9006A961C /* VGAGRAPH.RF6 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 264C16FA15CCF990006A961C /* VGAGRAPH.RF6 */; };
+		264C170C15CCF9A9006A961C /* VGAHEAD.RF6 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 264C16FB15CCF991006A961C /* VGAHEAD.RF6 */; };
+		264C170D15CCF9A9006A961C /* VSWAP.RF6 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 264C16FC15CCF991006A961C /* VSWAP.RF6 */; };
+		26584E0215ECA1F800CDA184 /* engie_die1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26584DFE15ECA1F800CDA184 /* engie_die1.wav */; };
+		26584E0315ECA1F800CDA184 /* engie_die2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26584DFF15ECA1F800CDA184 /* engie_die2.wav */; };
+		26584E0415ECA1F800CDA184 /* engie_see1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26584E0015ECA1F800CDA184 /* engie_see1.wav */; };
+		26584E0515ECA1F800CDA184 /* engie_see2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26584E0115ECA1F800CDA184 /* engie_see2.wav */; };
+		26584E0715ECA22900CDA184 /* engie_die1.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26584DFE15ECA1F800CDA184 /* engie_die1.wav */; };
+		26584E0815ECA22900CDA184 /* engie_die2.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26584DFF15ECA1F800CDA184 /* engie_die2.wav */; };
+		26584E0915ECA22900CDA184 /* engie_see1.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26584E0015ECA1F800CDA184 /* engie_see1.wav */; };
+		26584E0A15ECA22900CDA184 /* engie_see2.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26584E0115ECA1F800CDA184 /* engie_see2.wav */; };
+		26BAD82515E05BB100055F74 /* asmcomp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26BAD82015E05BB100055F74 /* asmcomp.cpp */; };
+		26BAD82615E05BB100055F74 /* vieasm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26BAD82315E05BB100055F74 /* vieasm.cpp */; };
+		26C365EA167BE460003CDC34 /* TRACK01.ogg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26C365DB167BE460003CDC34 /* TRACK01.ogg */; };
+		26C365EB167BE460003CDC34 /* TRACK02.ogg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26C365DC167BE460003CDC34 /* TRACK02.ogg */; };
+		26C365EC167BE460003CDC34 /* TRACK03.ogg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26C365DD167BE460003CDC34 /* TRACK03.ogg */; };
+		26C365ED167BE460003CDC34 /* TRACK04.ogg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26C365DE167BE460003CDC34 /* TRACK04.ogg */; };
+		26C365EE167BE460003CDC34 /* TRACK05.ogg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26C365DF167BE460003CDC34 /* TRACK05.ogg */; };
+		26C365EF167BE460003CDC34 /* TRACK06.ogg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26C365E0167BE460003CDC34 /* TRACK06.ogg */; };
+		26C365F0167BE460003CDC34 /* TRACK07.ogg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26C365E1167BE460003CDC34 /* TRACK07.ogg */; };
+		26C365F1167BE460003CDC34 /* TRACK08.ogg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26C365E2167BE460003CDC34 /* TRACK08.ogg */; };
+		26C365F2167BE460003CDC34 /* TRACK09.ogg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26C365E3167BE460003CDC34 /* TRACK09.ogg */; };
+		26C365F3167BE460003CDC34 /* TRACK10.ogg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26C365E4167BE460003CDC34 /* TRACK10.ogg */; };
+		26C365F4167BE460003CDC34 /* TRACK11.ogg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26C365E5167BE460003CDC34 /* TRACK11.ogg */; };
+		26C365F5167BE460003CDC34 /* TRACK12.ogg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26C365E6167BE460003CDC34 /* TRACK12.ogg */; };
+		26C365F6167BE460003CDC34 /* TRACK13.ogg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26C365E7167BE460003CDC34 /* TRACK13.ogg */; };
+		26C365F7167BE460003CDC34 /* TRACK14.ogg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26C365E8167BE460003CDC34 /* TRACK14.ogg */; };
+		26C365F8167BE460003CDC34 /* TRACK15.ogg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26C365E9167BE460003CDC34 /* TRACK15.ogg */; };
+		26E25E1615E5E2F3004A3926 /* glassbrk.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26E25E1515E5E2F3004A3926 /* glassbrk.wav */; };
+		26E25E1815E5E318004A3926 /* glassbrk.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26E25E1515E5E2F3004A3926 /* glassbrk.wav */; };
+		26F38AF815E63946003CC161 /* electric.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26F38AF715E63946003CC161 /* electric.wav */; };
+		26F38AFE15E6543B003CC161 /* electric.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26F38AF715E63946003CC161 /* electric.wav */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		D901F4C20FC0DB520040C290 /* SDL_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D901F4C10FC0DB520040C290 /* SDL_mixer.framework */; };
+		D901F4FE0FC0DBCB0040C290 /* id_pm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4CC0FC0DBCB0040C290 /* id_pm.cpp */; };
+		D901F5000FC0DBCB0040C290 /* wl_inter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4CF0FC0DBCB0040C290 /* wl_inter.cpp */; };
+		D901F5010FC0DBCB0040C290 /* wl_game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4D00FC0DBCB0040C290 /* wl_game.cpp */; };
+		D901F5020FC0DBCB0040C290 /* wl_floorceiling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4D10FC0DBCB0040C290 /* wl_floorceiling.cpp */; };
+		D901F5030FC0DBCB0040C290 /* wl_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4D50FC0DBCB0040C290 /* wl_draw.cpp */; };
+		D901F5040FC0DBCB0040C290 /* wl_dir3dspr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4D60FC0DBCB0040C290 /* wl_dir3dspr.cpp */; };
+		D901F5050FC0DBCB0040C290 /* wl_debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4D80FC0DBCB0040C290 /* wl_debug.cpp */; };
+		D901F5060FC0DBCB0040C290 /* wl_cloudsky.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4DA0FC0DBCB0040C290 /* wl_cloudsky.cpp */; };
+		D901F5070FC0DBCB0040C290 /* wl_atmos.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4DC0FC0DBCB0040C290 /* wl_atmos.cpp */; };
+		D901F5080FC0DBCB0040C290 /* wl_agent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4DD0FC0DBCB0040C290 /* wl_agent.cpp */; };
+		D901F5090FC0DBCB0040C290 /* wl_act2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4DE0FC0DBCB0040C290 /* wl_act2.cpp */; };
+		D901F50A0FC0DBCB0040C290 /* wl_act1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4DF0FC0DBCB0040C290 /* wl_act1.cpp */; };
+		D901F50B0FC0DBCB0040C290 /* signon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4E10FC0DBCB0040C290 /* signon.cpp */; };
+		D901F50C0FC0DBCB0040C290 /* sdl_winmain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4E20FC0DBCB0040C290 /* sdl_winmain.cpp */; };
+		D901F50D0FC0DBCB0040C290 /* id_us_1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4E50FC0DBCB0040C290 /* id_us_1.cpp */; };
+		D901F50E0FC0DBCB0040C290 /* wl_text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4E70FC0DBCB0040C290 /* wl_text.cpp */; };
+		D901F5100FC0DBCB0040C290 /* wl_state.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4EB0FC0DBCB0040C290 /* wl_state.cpp */; };
+		D901F5110FC0DBCB0040C290 /* wl_shade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4ED0FC0DBCB0040C290 /* wl_shade.cpp */; };
+		D901F5120FC0DBCB0040C290 /* wl_play.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4EE0FC0DBCB0040C290 /* wl_play.cpp */; };
+		D901F5130FC0DBCB0040C290 /* wl_parallax.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4EF0FC0DBCB0040C290 /* wl_parallax.cpp */; };
+		D901F5140FC0DBCB0040C290 /* wl_menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4F10FC0DBCB0040C290 /* wl_menu.cpp */; };
+		D901F5150FC0DBCB0040C290 /* wl_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4F20FC0DBCB0040C290 /* wl_main.cpp */; };
+		D901F5160FC0DBCB0040C290 /* id_in.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4F30FC0DBCB0040C290 /* id_in.cpp */; };
+		D901F5170FC0DBCB0040C290 /* id_vl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4F70FC0DBCB0040C290 /* id_vl.cpp */; };
+		D901F51A0FC0DBCB0040C290 /* id_vh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4FB0FC0DBCB0040C290 /* id_vh.cpp */; };
+		D901F51B0FC0DBCB0040C290 /* id_ca.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D901F4FC0FC0DBCB0040C290 /* id_ca.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		002F39FD09D0883400EBEB88 /* Copy Frameworks into .app bundle */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2616F8E315DA4E1D009ED4B1 /* SDL.framework in Copy Frameworks into .app bundle */,
+				2616F8E415DA4E1D009ED4B1 /* SDL_mixer.framework in Copy Frameworks into .app bundle */,
+			);
+			name = "Copy Frameworks into .app bundle";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2626335015E085F100E0D1B5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = sounds;
+			dstSubfolderSpec = 7;
+			files = (
+				26F38AFE15E6543B003CC161 /* electric.wav in CopyFiles */,
+				26E25E1815E5E318004A3926 /* glassbrk.wav in CopyFiles */,
+				2626335215E085FE00E0D1B5 /* achnoise.wav in CopyFiles */,
+				2626335315E085FE00E0D1B5 /* door.wav in CopyFiles */,
+				2626335415E085FE00E0D1B5 /* genpkup.wav in CopyFiles */,
+				2626335515E085FE00E0D1B5 /* thud.wav in CopyFiles */,
+				2626335615E085FE00E0D1B5 /* pushwall.wav in CopyFiles */,
+				2626335715E085FE00E0D1B5 /* keypkup.wav in CopyFiles */,
+				2626335815E085FE00E0D1B5 /* bossgun.wav in CopyFiles */,
+				2626335915E085FE00E0D1B5 /* ammoup.wav in CopyFiles */,
+				2626335A15E085FE00E0D1B5 /* switch.wav in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2626335115E085F500E0D1B5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = sounds/weapons;
+			dstSubfolderSpec = 7;
+			files = (
+				2626335B15E0861500E0D1B5 /* flamfire.wav in CopyFiles */,
+				2626335C15E0861500E0D1B5 /* taser.wav in CopyFiles */,
+				2626335D15E0861500E0D1B5 /* explode.wav in CopyFiles */,
+				2626335E15E0861500E0D1B5 /* rockfire.wav in CopyFiles */,
+				2626335F15E0861500E0D1B5 /* pistfire.wav in CopyFiles */,
+				2626336015E0861500E0D1B5 /* smg_fire.wav in CopyFiles */,
+				2626336115E0861500E0D1B5 /* cgunfire.wav in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2626336215E0861800E0D1B5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = sounds/rdash;
+			dstSubfolderSpec = 7;
+			files = (
+				2626336315E0862400E0D1B5 /* b3_bitch.wav in CopyFiles */,
+				2626336415E0862400E0D1B5 /* b3_see.wav in CopyFiles */,
+				2626336515E0862400E0D1B5 /* b3_swell.wav in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2626336615E0862700E0D1B5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = sounds/derelle;
+			dstSubfolderSpec = 7;
+			files = (
+				2626336715E0863200E0D1B5 /* der_die.wav in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2626336815E0863400E0D1B5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = sounds/atmos;
+			dstSubfolderSpec = 7;
+			files = (
+				2626336915E0864300E0D1B5 /* b2_die.wav in CopyFiles */,
+				2626336A15E0864300E0D1B5 /* b2_see.wav in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2626336B15E0864600E0D1B5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = sounds/surprise;
+			dstSubfolderSpec = 7;
+			files = (
+				2626336C15E0865500E0D1B5 /* b1_see.wav in CopyFiles */,
+				2626336D15E0865500E0D1B5 /* b1_die.wav in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2626336E15E0865800E0D1B5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = sounds/pegpol;
+			dstSubfolderSpec = 7;
+			files = (
+				2626336F15E0865F00E0D1B5 /* pp_die.wav in CopyFiles */,
+				2626337015E0865F00E0D1B5 /* pp_attk.wav in CopyFiles */,
+				2626337115E0865F00E0D1B5 /* pp_see2.wav in CopyFiles */,
+				2626337215E0865F00E0D1B5 /* pp_see1.wav in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2626337315E0866900E0D1B5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = sounds/guard;
+			dstSubfolderSpec = 7;
+			files = (
+				2626337415E0867D00E0D1B5 /* g_die1.wav in CopyFiles */,
+				2626337515E0867D00E0D1B5 /* g_die2.wav in CopyFiles */,
+				2626337615E0867D00E0D1B5 /* g_die3.wav in CopyFiles */,
+				2626337715E0867D00E0D1B5 /* g_see1.wav in CopyFiles */,
+				2626337815E0867D00E0D1B5 /* g_see2.wav in CopyFiles */,
+				2626337915E0867D00E0D1B5 /* g_see3.wav in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		264C170515CCF9A2006A961C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				264C170815CCF9A9006A961C /* GAMEMAPS.RF6 in CopyFiles */,
+				264C170915CCF9A9006A961C /* MAPHEAD.RF6 in CopyFiles */,
+				264C170A15CCF9A9006A961C /* VGADICT.RF6 in CopyFiles */,
+				264C170B15CCF9A9006A961C /* VGAGRAPH.RF6 in CopyFiles */,
+				264C170C15CCF9A9006A961C /* VGAHEAD.RF6 in CopyFiles */,
+				264C170D15CCF9A9006A961C /* VSWAP.RF6 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26584E0615ECA20F00CDA184 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = sounds/engie;
+			dstSubfolderSpec = 7;
+			files = (
+				26584E0715ECA22900CDA184 /* engie_die1.wav in CopyFiles */,
+				26584E0815ECA22900CDA184 /* engie_die2.wav in CopyFiles */,
+				26584E0915ECA22900CDA184 /* engie_see1.wav in CopyFiles */,
+				26584E0A15ECA22900CDA184 /* engie_see2.wav in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26BAD82E15E073CC00055F74 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = music;
+			dstSubfolderSpec = 7;
+			files = (
+				26C365EA167BE460003CDC34 /* TRACK01.ogg in CopyFiles */,
+				26C365EB167BE460003CDC34 /* TRACK02.ogg in CopyFiles */,
+				26C365EC167BE460003CDC34 /* TRACK03.ogg in CopyFiles */,
+				26C365ED167BE460003CDC34 /* TRACK04.ogg in CopyFiles */,
+				26C365EE167BE460003CDC34 /* TRACK05.ogg in CopyFiles */,
+				26C365EF167BE460003CDC34 /* TRACK06.ogg in CopyFiles */,
+				26C365F0167BE460003CDC34 /* TRACK07.ogg in CopyFiles */,
+				26C365F1167BE460003CDC34 /* TRACK08.ogg in CopyFiles */,
+				26C365F2167BE460003CDC34 /* TRACK09.ogg in CopyFiles */,
+				26C365F3167BE460003CDC34 /* TRACK10.ogg in CopyFiles */,
+				26C365F4167BE460003CDC34 /* TRACK11.ogg in CopyFiles */,
+				26C365F5167BE460003CDC34 /* TRACK12.ogg in CopyFiles */,
+				26C365F6167BE460003CDC34 /* TRACK13.ogg in CopyFiles */,
+				26C365F7167BE460003CDC34 /* TRACK14.ogg in CopyFiles */,
+				26C365F8167BE460003CDC34 /* TRACK15.ogg in CopyFiles */,
+				2626330015E0774F00E0D1B5 /* MARCH.ogg in CopyFiles */,
+				2626330115E0774F00E0D1B5 /* RFACTORY.ogg in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		002F39F909D0881F00EBEB88 /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = /Library/Frameworks/SDL.framework; sourceTree = "<absolute>"; };
+		002F3A2B09D0888800EBEB88 /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = SOURCE_ROOT; };
+		002F3A2C09D0888800EBEB88 /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = SOURCE_ROOT; };
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		2616F8DC15DA4983009ED4B1 /* SDL_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_image.framework; path = /Library/Frameworks/SDL_image.framework; sourceTree = "<absolute>"; };
+		262632FC15E0772300E0D1B5 /* MARCH.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = MARCH.ogg; path = ../../music/MARCH.ogg; sourceTree = "<group>"; };
+		262632FD15E0772300E0D1B5 /* RFACTORY.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = RFACTORY.ogg; path = ../../music/RFACTORY.ogg; sourceTree = "<group>"; };
+		2626330415E0792F00E0D1B5 /* g_die1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = g_die1.wav; path = ../../sounds/g_die1.wav; sourceTree = "<group>"; };
+		2626330515E0792F00E0D1B5 /* g_die2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = g_die2.wav; path = ../../sounds/g_die2.wav; sourceTree = "<group>"; };
+		2626330615E0792F00E0D1B5 /* g_die3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = g_die3.wav; path = ../../sounds/g_die3.wav; sourceTree = "<group>"; };
+		2626330715E0792F00E0D1B5 /* g_see1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = g_see1.wav; path = ../../sounds/g_see1.wav; sourceTree = "<group>"; };
+		2626330815E0792F00E0D1B5 /* g_see2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = g_see2.wav; path = ../../sounds/g_see2.wav; sourceTree = "<group>"; };
+		2626330915E0792F00E0D1B5 /* g_see3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = g_see3.wav; path = ../../sounds/g_see3.wav; sourceTree = "<group>"; };
+		2626331115E079C900E0D1B5 /* pp_see1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = pp_see1.wav; path = ../../sounds/pp_see1.wav; sourceTree = "<group>"; };
+		2626331315E079DB00E0D1B5 /* pp_see2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = pp_see2.wav; path = ../../sounds/pp_see2.wav; sourceTree = "<group>"; };
+		2626331515E07A0100E0D1B5 /* pp_attk.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = pp_attk.wav; path = ../../sounds/pp_attk.wav; sourceTree = "<group>"; };
+		2626331715E07A1800E0D1B5 /* pp_die.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = pp_die.wav; path = ../../sounds/pp_die.wav; sourceTree = "<group>"; };
+		2626331A15E07A4B00E0D1B5 /* b1_see.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = b1_see.wav; path = ../../sounds/b1_see.wav; sourceTree = "<group>"; };
+		2626331B15E07A4B00E0D1B5 /* b1_die.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = b1_die.wav; path = ../../sounds/b1_die.wav; sourceTree = "<group>"; };
+		2626331F15E07A7200E0D1B5 /* b2_die.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = b2_die.wav; path = ../../sounds/b2_die.wav; sourceTree = "<group>"; };
+		2626332015E07A7200E0D1B5 /* b2_see.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = b2_see.wav; path = ../../sounds/b2_see.wav; sourceTree = "<group>"; };
+		2626332415E07A8E00E0D1B5 /* der_die.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = der_die.wav; path = ../../sounds/der_die.wav; sourceTree = "<group>"; };
+		2626332715E07AA800E0D1B5 /* b3_bitch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = b3_bitch.wav; path = ../../sounds/b3_bitch.wav; sourceTree = "<group>"; };
+		2626332815E07AA800E0D1B5 /* b3_see.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = b3_see.wav; path = ../../sounds/b3_see.wav; sourceTree = "<group>"; };
+		2626332915E07AA800E0D1B5 /* b3_swell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = b3_swell.wav; path = ../../sounds/b3_swell.wav; sourceTree = "<group>"; };
+		2626332E15E07B0E00E0D1B5 /* switch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = switch.wav; path = ../../sounds/switch.wav; sourceTree = "<group>"; };
+		2626333015E07B4200E0D1B5 /* door.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = door.wav; path = ../../sounds/door.wav; sourceTree = "<group>"; };
+		2626333415E07B7400E0D1B5 /* ammoup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ammoup.wav; path = ../../sounds/ammoup.wav; sourceTree = "<group>"; };
+		2626333615E07B8400E0D1B5 /* bossgun.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = bossgun.wav; path = ../../sounds/bossgun.wav; sourceTree = "<group>"; };
+		2626333815E07B9600E0D1B5 /* cgunfire.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = cgunfire.wav; path = ../../sounds/cgunfire.wav; sourceTree = "<group>"; };
+		2626333A15E07BB100E0D1B5 /* keypkup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = keypkup.wav; path = ../../sounds/keypkup.wav; sourceTree = "<group>"; };
+		2626333C15E07BD200E0D1B5 /* smg_fire.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = smg_fire.wav; path = ../../sounds/smg_fire.wav; sourceTree = "<group>"; };
+		2626333E15E07BF300E0D1B5 /* pistfire.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = pistfire.wav; path = ../../sounds/pistfire.wav; sourceTree = "<group>"; };
+		2626334015E07C0500E0D1B5 /* explode.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = explode.wav; path = ../../sounds/explode.wav; sourceTree = "<group>"; };
+		2626334115E07C0500E0D1B5 /* rockfire.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = rockfire.wav; path = ../../sounds/rockfire.wav; sourceTree = "<group>"; };
+		2626334415E07C2000E0D1B5 /* pushwall.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = pushwall.wav; path = ../../sounds/pushwall.wav; sourceTree = "<group>"; };
+		2626334615E07C3100E0D1B5 /* thud.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = thud.wav; path = ../../sounds/thud.wav; sourceTree = "<group>"; };
+		2626334815E07C4500E0D1B5 /* taser.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = taser.wav; path = ../../sounds/taser.wav; sourceTree = "<group>"; };
+		2626334A15E07C5000E0D1B5 /* genpkup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = genpkup.wav; path = ../../sounds/genpkup.wav; sourceTree = "<group>"; };
+		2626334C15E0800C00E0D1B5 /* flamfire.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = flamfire.wav; path = ../../sounds/flamfire.wav; sourceTree = "<group>"; };
+		2626334E15E080C400E0D1B5 /* achnoise.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = achnoise.wav; path = ../../sounds/achnoise.wav; sourceTree = "<group>"; };
+		262AFE5515D2F67300E9B7A6 /* rfactory.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = rfactory.icns; sourceTree = "<group>"; };
+		262AFE6715D4B90600E9B7A6 /* _rf_anim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = _rf_anim.h; path = ../_rf_anim.h; sourceTree = "<group>"; };
+		264C16F715CCF990006A961C /* GAMEMAPS.RF6 */ = {isa = PBXFileReference; lastKnownFileType = file; name = GAMEMAPS.RF6; path = ../../Output/GAMEMAPS.RF6; sourceTree = "<group>"; };
+		264C16F815CCF990006A961C /* MAPHEAD.RF6 */ = {isa = PBXFileReference; lastKnownFileType = file; name = MAPHEAD.RF6; path = ../../Output/MAPHEAD.RF6; sourceTree = "<group>"; };
+		264C16F915CCF990006A961C /* VGADICT.RF6 */ = {isa = PBXFileReference; lastKnownFileType = file; name = VGADICT.RF6; path = ../../Output/VGADICT.RF6; sourceTree = "<group>"; };
+		264C16FA15CCF990006A961C /* VGAGRAPH.RF6 */ = {isa = PBXFileReference; lastKnownFileType = file; name = VGAGRAPH.RF6; path = ../../Output/VGAGRAPH.RF6; sourceTree = "<group>"; };
+		264C16FB15CCF991006A961C /* VGAHEAD.RF6 */ = {isa = PBXFileReference; lastKnownFileType = file; name = VGAHEAD.RF6; path = ../../Output/VGAHEAD.RF6; sourceTree = "<group>"; };
+		264C16FC15CCF991006A961C /* VSWAP.RF6 */ = {isa = PBXFileReference; lastKnownFileType = file; name = VSWAP.RF6; path = ../../Output/VSWAP.RF6; sourceTree = "<group>"; };
+		26584DFE15ECA1F800CDA184 /* engie_die1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = engie_die1.wav; path = ../../sounds/engie_die1.wav; sourceTree = "<group>"; };
+		26584DFF15ECA1F800CDA184 /* engie_die2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = engie_die2.wav; path = ../../sounds/engie_die2.wav; sourceTree = "<group>"; };
+		26584E0015ECA1F800CDA184 /* engie_see1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = engie_see1.wav; path = ../../sounds/engie_see1.wav; sourceTree = "<group>"; };
+		26584E0115ECA1F800CDA184 /* engie_see2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = engie_see2.wav; path = ../../sounds/engie_see2.wav; sourceTree = "<group>"; };
+		26BAD82015E05BB100055F74 /* asmcomp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = asmcomp.cpp; path = ../asound/asmcomp.cpp; sourceTree = "<group>"; };
+		26BAD82115E05BB100055F74 /* asmcomp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = asmcomp.h; path = ../asound/asmcomp.h; sourceTree = "<group>"; };
+		26BAD82215E05BB100055F74 /* asmcref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = asmcref.h; path = ../asound/asmcref.h; sourceTree = "<group>"; };
+		26BAD82315E05BB100055F74 /* vieasm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = vieasm.cpp; path = ../asound/vieasm.cpp; sourceTree = "<group>"; };
+		26BAD82415E05BB100055F74 /* vieasm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vieasm.h; path = ../asound/vieasm.h; sourceTree = "<group>"; };
+		26C365DB167BE460003CDC34 /* TRACK01.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = TRACK01.ogg; path = ../../../../RF3D/music/TRACK01.ogg; sourceTree = "<group>"; };
+		26C365DC167BE460003CDC34 /* TRACK02.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = TRACK02.ogg; path = ../../../../RF3D/music/TRACK02.ogg; sourceTree = "<group>"; };
+		26C365DD167BE460003CDC34 /* TRACK03.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = TRACK03.ogg; path = ../../../../RF3D/music/TRACK03.ogg; sourceTree = "<group>"; };
+		26C365DE167BE460003CDC34 /* TRACK04.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = TRACK04.ogg; path = ../../../../RF3D/music/TRACK04.ogg; sourceTree = "<group>"; };
+		26C365DF167BE460003CDC34 /* TRACK05.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = TRACK05.ogg; path = ../../../../RF3D/music/TRACK05.ogg; sourceTree = "<group>"; };
+		26C365E0167BE460003CDC34 /* TRACK06.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = TRACK06.ogg; path = ../../../../RF3D/music/TRACK06.ogg; sourceTree = "<group>"; };
+		26C365E1167BE460003CDC34 /* TRACK07.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = TRACK07.ogg; path = ../../../../RF3D/music/TRACK07.ogg; sourceTree = "<group>"; };
+		26C365E2167BE460003CDC34 /* TRACK08.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = TRACK08.ogg; path = ../../../../RF3D/music/TRACK08.ogg; sourceTree = "<group>"; };
+		26C365E3167BE460003CDC34 /* TRACK09.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = TRACK09.ogg; path = ../../../../RF3D/music/TRACK09.ogg; sourceTree = "<group>"; };
+		26C365E4167BE460003CDC34 /* TRACK10.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = TRACK10.ogg; path = ../../../../RF3D/music/TRACK10.ogg; sourceTree = "<group>"; };
+		26C365E5167BE460003CDC34 /* TRACK11.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = TRACK11.ogg; path = ../../../../RF3D/music/TRACK11.ogg; sourceTree = "<group>"; };
+		26C365E6167BE460003CDC34 /* TRACK12.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = TRACK12.ogg; path = ../../../../RF3D/music/TRACK12.ogg; sourceTree = "<group>"; };
+		26C365E7167BE460003CDC34 /* TRACK13.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = TRACK13.ogg; path = ../../../../RF3D/music/TRACK13.ogg; sourceTree = "<group>"; };
+		26C365E8167BE460003CDC34 /* TRACK14.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = TRACK14.ogg; path = ../../../../RF3D/music/TRACK14.ogg; sourceTree = "<group>"; };
+		26C365E9167BE460003CDC34 /* TRACK15.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = TRACK15.ogg; path = ../../../../RF3D/music/TRACK15.ogg; sourceTree = "<group>"; };
+		26E25E1515E5E2F3004A3926 /* glassbrk.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = glassbrk.wav; path = ../../sounds/glassbrk.wav; sourceTree = "<group>"; };
+		26F38AF715E63946003CC161 /* electric.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = electric.wav; path = ../../sounds/electric.wav; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* Scoot Hard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scoot Hard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D901F4C10FC0DB520040C290 /* SDL_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_mixer.framework; path = /Library/Frameworks/SDL_mixer.framework; sourceTree = "<absolute>"; };
+		D901F4C70FC0DBCB0040C290 /* id_in.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = id_in.h; path = ../id_in.h; sourceTree = SOURCE_ROOT; };
+		D901F4C80FC0DBCB0040C290 /* f_spear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = f_spear.h; path = ../f_spear.h; sourceTree = SOURCE_ROOT; };
+		D901F4CA0FC0DBCB0040C290 /* audiosod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = audiosod.h; path = ../audiosod.h; sourceTree = SOURCE_ROOT; };
+		D901F4CC0FC0DBCB0040C290 /* id_pm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = id_pm.cpp; path = ../id_pm.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4CE0FC0DBCB0040C290 /* gfxv_sod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gfxv_sod.h; path = ../gfxv_sod.h; sourceTree = SOURCE_ROOT; };
+		D901F4CF0FC0DBCB0040C290 /* wl_inter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wl_inter.cpp; path = ../wl_inter.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4D00FC0DBCB0040C290 /* wl_game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wl_game.cpp; path = ../wl_game.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4D10FC0DBCB0040C290 /* wl_floorceiling.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wl_floorceiling.cpp; path = ../wl_floorceiling.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4D20FC0DBCB0040C290 /* gfxv_wl6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gfxv_wl6.h; path = ../gfxv_wl6.h; sourceTree = SOURCE_ROOT; };
+		D901F4D30FC0DBCB0040C290 /* gfxv_apo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gfxv_apo.h; path = ../gfxv_apo.h; sourceTree = SOURCE_ROOT; };
+		D901F4D50FC0DBCB0040C290 /* wl_draw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wl_draw.cpp; path = ../wl_draw.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4D60FC0DBCB0040C290 /* wl_dir3dspr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wl_dir3dspr.cpp; path = ../wl_dir3dspr.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4D70FC0DBCB0040C290 /* wl_def.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wl_def.h; path = ../wl_def.h; sourceTree = SOURCE_ROOT; };
+		D901F4D80FC0DBCB0040C290 /* wl_debug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wl_debug.cpp; path = ../wl_debug.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4D90FC0DBCB0040C290 /* wl_cloudsky.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wl_cloudsky.h; path = ../wl_cloudsky.h; sourceTree = SOURCE_ROOT; };
+		D901F4DA0FC0DBCB0040C290 /* wl_cloudsky.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wl_cloudsky.cpp; path = ../wl_cloudsky.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4DB0FC0DBCB0040C290 /* wl_atmos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wl_atmos.h; path = ../wl_atmos.h; sourceTree = SOURCE_ROOT; };
+		D901F4DC0FC0DBCB0040C290 /* wl_atmos.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wl_atmos.cpp; path = ../wl_atmos.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4DD0FC0DBCB0040C290 /* wl_agent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wl_agent.cpp; path = ../wl_agent.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4DE0FC0DBCB0040C290 /* wl_act2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; name = wl_act2.cpp; path = ../wl_act2.cpp; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		D901F4DF0FC0DBCB0040C290 /* wl_act1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wl_act1.cpp; path = ../wl_act1.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4E00FC0DBCB0040C290 /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = version.h; path = ../version.h; sourceTree = SOURCE_ROOT; };
+		D901F4E10FC0DBCB0040C290 /* signon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = signon.cpp; path = ../signon.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4E20FC0DBCB0040C290 /* sdl_winmain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sdl_winmain.cpp; path = ../sdl_winmain.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4E30FC0DBCB0040C290 /* audiowl6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = audiowl6.h; path = ../audiowl6.h; sourceTree = SOURCE_ROOT; };
+		D901F4E40FC0DBCB0040C290 /* id_ca.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = id_ca.h; path = ../id_ca.h; sourceTree = SOURCE_ROOT; };
+		D901F4E50FC0DBCB0040C290 /* id_us_1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = id_us_1.cpp; path = ../id_us_1.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4E60FC0DBCB0040C290 /* id_us.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = id_us.h; path = ../id_us.h; sourceTree = SOURCE_ROOT; };
+		D901F4E70FC0DBCB0040C290 /* wl_text.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wl_text.cpp; path = ../wl_text.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4EA0FC0DBCB0040C290 /* gp2x.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gp2x.h; path = ../gp2x.h; sourceTree = SOURCE_ROOT; };
+		D901F4EB0FC0DBCB0040C290 /* wl_state.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; name = wl_state.cpp; path = ../wl_state.cpp; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		D901F4EC0FC0DBCB0040C290 /* wl_shade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wl_shade.h; path = ../wl_shade.h; sourceTree = SOURCE_ROOT; };
+		D901F4ED0FC0DBCB0040C290 /* wl_shade.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wl_shade.cpp; path = ../wl_shade.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4EE0FC0DBCB0040C290 /* wl_play.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wl_play.cpp; path = ../wl_play.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4EF0FC0DBCB0040C290 /* wl_parallax.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wl_parallax.cpp; path = ../wl_parallax.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4F00FC0DBCB0040C290 /* wl_menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wl_menu.h; path = ../wl_menu.h; sourceTree = SOURCE_ROOT; };
+		D901F4F10FC0DBCB0040C290 /* wl_menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wl_menu.cpp; path = ../wl_menu.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4F20FC0DBCB0040C290 /* wl_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wl_main.cpp; path = ../wl_main.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4F30FC0DBCB0040C290 /* id_in.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = id_in.cpp; path = ../id_in.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4F40FC0DBCB0040C290 /* foreign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = foreign.h; path = ../foreign.h; sourceTree = SOURCE_ROOT; };
+		D901F4F50FC0DBCB0040C290 /* id_pm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = id_pm.h; path = ../id_pm.h; sourceTree = SOURCE_ROOT; };
+		D901F4F60FC0DBCB0040C290 /* id_vl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = id_vl.h; path = ../id_vl.h; sourceTree = SOURCE_ROOT; };
+		D901F4F70FC0DBCB0040C290 /* id_vl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = id_vl.cpp; path = ../id_vl.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4FA0FC0DBCB0040C290 /* id_vh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = id_vh.h; path = ../id_vh.h; sourceTree = SOURCE_ROOT; };
+		D901F4FB0FC0DBCB0040C290 /* id_vh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = id_vh.cpp; path = ../id_vh.cpp; sourceTree = SOURCE_ROOT; };
+		D901F4FC0FC0DBCB0040C290 /* id_ca.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = id_ca.cpp; path = ../id_ca.cpp; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				002F39FA09D0881F00EBEB88 /* SDL.framework in Frameworks */,
+				D901F4C20FC0DB520040C290 /* SDL_mixer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				002F3A2B09D0888800EBEB88 /* SDLMain.h */,
+				002F3A2C09D0888800EBEB88 /* SDLMain.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2616F8DC15DA4983009ED4B1 /* SDL_image.framework */,
+				002F39F909D0881F00EBEB88 /* SDL.framework */,
+				D901F4C10FC0DB520040C290 /* SDL_mixer.framework */,
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* Scoot Hard.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2626330215E077F900E0D1B5 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				2626334E15E080C400E0D1B5 /* achnoise.wav */,
+				2626333415E07B7400E0D1B5 /* ammoup.wav */,
+				2626331E15E07A6500E0D1B5 /* atmos */,
+				2626333615E07B8400E0D1B5 /* bossgun.wav */,
+				2626332315E07A8500E0D1B5 /* derelle */,
+				2626333015E07B4200E0D1B5 /* door.wav */,
+				26F38AF715E63946003CC161 /* electric.wav */,
+				26584DFC15ECA1DF00CDA184 /* engie */,
+				2626334A15E07C5000E0D1B5 /* genpkup.wav */,
+				26E25E1515E5E2F3004A3926 /* glassbrk.wav */,
+				2626330315E0791700E0D1B5 /* guard */,
+				2626333A15E07BB100E0D1B5 /* keypkup.wav */,
+				2626331015E0795000E0D1B5 /* pegpol */,
+				2626334415E07C2000E0D1B5 /* pushwall.wav */,
+				2626332615E07A9C00E0D1B5 /* rdash */,
+				2626331915E07A3B00E0D1B5 /* surprise */,
+				2626332E15E07B0E00E0D1B5 /* switch.wav */,
+				2626334615E07C3100E0D1B5 /* thud.wav */,
+				2626332D15E07AF200E0D1B5 /* weapons */,
+			);
+			name = sounds;
+			sourceTree = "<group>";
+		};
+		2626330315E0791700E0D1B5 /* guard */ = {
+			isa = PBXGroup;
+			children = (
+				2626330415E0792F00E0D1B5 /* g_die1.wav */,
+				2626330515E0792F00E0D1B5 /* g_die2.wav */,
+				2626330615E0792F00E0D1B5 /* g_die3.wav */,
+				2626330715E0792F00E0D1B5 /* g_see1.wav */,
+				2626330815E0792F00E0D1B5 /* g_see2.wav */,
+				2626330915E0792F00E0D1B5 /* g_see3.wav */,
+			);
+			name = guard;
+			sourceTree = "<group>";
+		};
+		2626331015E0795000E0D1B5 /* pegpol */ = {
+			isa = PBXGroup;
+			children = (
+				2626331715E07A1800E0D1B5 /* pp_die.wav */,
+				2626331515E07A0100E0D1B5 /* pp_attk.wav */,
+				2626331315E079DB00E0D1B5 /* pp_see2.wav */,
+				2626331115E079C900E0D1B5 /* pp_see1.wav */,
+			);
+			name = pegpol;
+			sourceTree = "<group>";
+		};
+		2626331915E07A3B00E0D1B5 /* surprise */ = {
+			isa = PBXGroup;
+			children = (
+				2626331A15E07A4B00E0D1B5 /* b1_see.wav */,
+				2626331B15E07A4B00E0D1B5 /* b1_die.wav */,
+			);
+			name = surprise;
+			sourceTree = "<group>";
+		};
+		2626331E15E07A6500E0D1B5 /* atmos */ = {
+			isa = PBXGroup;
+			children = (
+				2626331F15E07A7200E0D1B5 /* b2_die.wav */,
+				2626332015E07A7200E0D1B5 /* b2_see.wav */,
+			);
+			name = atmos;
+			sourceTree = "<group>";
+		};
+		2626332315E07A8500E0D1B5 /* derelle */ = {
+			isa = PBXGroup;
+			children = (
+				2626332415E07A8E00E0D1B5 /* der_die.wav */,
+			);
+			name = derelle;
+			sourceTree = "<group>";
+		};
+		2626332615E07A9C00E0D1B5 /* rdash */ = {
+			isa = PBXGroup;
+			children = (
+				2626332715E07AA800E0D1B5 /* b3_bitch.wav */,
+				2626332815E07AA800E0D1B5 /* b3_see.wav */,
+				2626332915E07AA800E0D1B5 /* b3_swell.wav */,
+			);
+			name = rdash;
+			sourceTree = "<group>";
+		};
+		2626332D15E07AF200E0D1B5 /* weapons */ = {
+			isa = PBXGroup;
+			children = (
+				2626334C15E0800C00E0D1B5 /* flamfire.wav */,
+				2626334815E07C4500E0D1B5 /* taser.wav */,
+				2626334015E07C0500E0D1B5 /* explode.wav */,
+				2626334115E07C0500E0D1B5 /* rockfire.wav */,
+				2626333E15E07BF300E0D1B5 /* pistfire.wav */,
+				2626333C15E07BD200E0D1B5 /* smg_fire.wav */,
+				2626333815E07B9600E0D1B5 /* cgunfire.wav */,
+			);
+			name = weapons;
+			sourceTree = "<group>";
+		};
+		26584DFC15ECA1DF00CDA184 /* engie */ = {
+			isa = PBXGroup;
+			children = (
+				26584DFE15ECA1F800CDA184 /* engie_die1.wav */,
+				26584DFF15ECA1F800CDA184 /* engie_die2.wav */,
+				26584E0015ECA1F800CDA184 /* engie_see1.wav */,
+				26584E0115ECA1F800CDA184 /* engie_see2.wav */,
+			);
+			name = engie;
+			sourceTree = "<group>";
+		};
+		26BAD82915E06F4800055F74 /* music */ = {
+			isa = PBXGroup;
+			children = (
+				262632FC15E0772300E0D1B5 /* MARCH.ogg */,
+				262632FD15E0772300E0D1B5 /* RFACTORY.ogg */,
+			);
+			name = music;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Untitled */ = {
+			isa = PBXGroup;
+			children = (
+				26C365DB167BE460003CDC34 /* TRACK01.ogg */,
+				26C365DC167BE460003CDC34 /* TRACK02.ogg */,
+				26C365DD167BE460003CDC34 /* TRACK03.ogg */,
+				26C365DE167BE460003CDC34 /* TRACK04.ogg */,
+				26C365DF167BE460003CDC34 /* TRACK05.ogg */,
+				26C365E0167BE460003CDC34 /* TRACK06.ogg */,
+				26C365E1167BE460003CDC34 /* TRACK07.ogg */,
+				26C365E2167BE460003CDC34 /* TRACK08.ogg */,
+				26C365E3167BE460003CDC34 /* TRACK09.ogg */,
+				26C365E4167BE460003CDC34 /* TRACK10.ogg */,
+				26C365E5167BE460003CDC34 /* TRACK11.ogg */,
+				26C365E6167BE460003CDC34 /* TRACK12.ogg */,
+				26C365E7167BE460003CDC34 /* TRACK13.ogg */,
+				26C365E8167BE460003CDC34 /* TRACK14.ogg */,
+				26C365E9167BE460003CDC34 /* TRACK15.ogg */,
+				2626330215E077F900E0D1B5 /* sounds */,
+				26BAD82915E06F4800055F74 /* music */,
+				264C16F715CCF990006A961C /* GAMEMAPS.RF6 */,
+				264C16F815CCF990006A961C /* MAPHEAD.RF6 */,
+				264C16F915CCF990006A961C /* VGADICT.RF6 */,
+				264C16FA15CCF990006A961C /* VGAGRAPH.RF6 */,
+				264C16FB15CCF991006A961C /* VGAHEAD.RF6 */,
+				264C16FC15CCF991006A961C /* VSWAP.RF6 */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = Untitled;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				26BAD82015E05BB100055F74 /* asmcomp.cpp */,
+				26BAD82115E05BB100055F74 /* asmcomp.h */,
+				26BAD82215E05BB100055F74 /* asmcref.h */,
+				26BAD82315E05BB100055F74 /* vieasm.cpp */,
+				26BAD82415E05BB100055F74 /* vieasm.h */,
+				262AFE6715D4B90600E9B7A6 /* _rf_anim.h */,
+				D901F4CA0FC0DBCB0040C290 /* audiosod.h */,
+				D901F4E30FC0DBCB0040C290 /* audiowl6.h */,
+				D901F4C80FC0DBCB0040C290 /* f_spear.h */,
+				D901F4F40FC0DBCB0040C290 /* foreign.h */,
+				D901F4D30FC0DBCB0040C290 /* gfxv_apo.h */,
+				D901F4CE0FC0DBCB0040C290 /* gfxv_sod.h */,
+				D901F4D20FC0DBCB0040C290 /* gfxv_wl6.h */,
+				D901F4EA0FC0DBCB0040C290 /* gp2x.h */,
+				D901F4FC0FC0DBCB0040C290 /* id_ca.cpp */,
+				D901F4E40FC0DBCB0040C290 /* id_ca.h */,
+				D901F4F30FC0DBCB0040C290 /* id_in.cpp */,
+				D901F4C70FC0DBCB0040C290 /* id_in.h */,
+				D901F4CC0FC0DBCB0040C290 /* id_pm.cpp */,
+				D901F4F50FC0DBCB0040C290 /* id_pm.h */,
+				D901F4E60FC0DBCB0040C290 /* id_us.h */,
+				D901F4E50FC0DBCB0040C290 /* id_us_1.cpp */,
+				D901F4FB0FC0DBCB0040C290 /* id_vh.cpp */,
+				D901F4FA0FC0DBCB0040C290 /* id_vh.h */,
+				D901F4F70FC0DBCB0040C290 /* id_vl.cpp */,
+				D901F4F60FC0DBCB0040C290 /* id_vl.h */,
+				D901F4E20FC0DBCB0040C290 /* sdl_winmain.cpp */,
+				D901F4E10FC0DBCB0040C290 /* signon.cpp */,
+				D901F4E00FC0DBCB0040C290 /* version.h */,
+				D901F4DF0FC0DBCB0040C290 /* wl_act1.cpp */,
+				D901F4DE0FC0DBCB0040C290 /* wl_act2.cpp */,
+				D901F4DD0FC0DBCB0040C290 /* wl_agent.cpp */,
+				D901F4DC0FC0DBCB0040C290 /* wl_atmos.cpp */,
+				D901F4DB0FC0DBCB0040C290 /* wl_atmos.h */,
+				D901F4DA0FC0DBCB0040C290 /* wl_cloudsky.cpp */,
+				D901F4D90FC0DBCB0040C290 /* wl_cloudsky.h */,
+				D901F4D80FC0DBCB0040C290 /* wl_debug.cpp */,
+				D901F4D70FC0DBCB0040C290 /* wl_def.h */,
+				D901F4D60FC0DBCB0040C290 /* wl_dir3dspr.cpp */,
+				D901F4D50FC0DBCB0040C290 /* wl_draw.cpp */,
+				D901F4D10FC0DBCB0040C290 /* wl_floorceiling.cpp */,
+				D901F4D00FC0DBCB0040C290 /* wl_game.cpp */,
+				D901F4CF0FC0DBCB0040C290 /* wl_inter.cpp */,
+				D901F4F20FC0DBCB0040C290 /* wl_main.cpp */,
+				D901F4F10FC0DBCB0040C290 /* wl_menu.cpp */,
+				D901F4F00FC0DBCB0040C290 /* wl_menu.h */,
+				D901F4EF0FC0DBCB0040C290 /* wl_parallax.cpp */,
+				D901F4EE0FC0DBCB0040C290 /* wl_play.cpp */,
+				D901F4ED0FC0DBCB0040C290 /* wl_shade.cpp */,
+				D901F4EC0FC0DBCB0040C290 /* wl_shade.h */,
+				D901F4EB0FC0DBCB0040C290 /* wl_state.cpp */,
+				D901F4E70FC0DBCB0040C290 /* wl_text.cpp */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				262AFE5515D2F67300E9B7A6 /* rfactory.icns */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* Scoot Hard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Scoot Hard" */;
+			buildPhases = (
+				002F39FD09D0883400EBEB88 /* Copy Frameworks into .app bundle */,
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+				264C170515CCF9A2006A961C /* CopyFiles */,
+				26BAD82E15E073CC00055F74 /* CopyFiles */,
+				2626335015E085F100E0D1B5 /* CopyFiles */,
+				2626335115E085F500E0D1B5 /* CopyFiles */,
+				2626336215E0861800E0D1B5 /* CopyFiles */,
+				2626336615E0862700E0D1B5 /* CopyFiles */,
+				2626336815E0863400E0D1B5 /* CopyFiles */,
+				2626336B15E0864600E0D1B5 /* CopyFiles */,
+				2626336E15E0865800E0D1B5 /* CopyFiles */,
+				2626337315E0866900E0D1B5 /* CopyFiles */,
+				26584E0615ECA20F00CDA184 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Scoot Hard";
+			productInstallPath = "$(HOME)/Applications";
+			productName = Untitled;
+			productReference = 8D1107320486CEB800E47090 /* Scoot Hard.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Scoot Hard" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Untitled */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* Scoot Hard */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				262AFE5615D2F67300E9B7A6 /* rfactory.icns in Resources */,
+				26E25E1615E5E2F3004A3926 /* glassbrk.wav in Resources */,
+				26F38AF815E63946003CC161 /* electric.wav in Resources */,
+				26584E0215ECA1F800CDA184 /* engie_die1.wav in Resources */,
+				26584E0315ECA1F800CDA184 /* engie_die2.wav in Resources */,
+				26584E0415ECA1F800CDA184 /* engie_see1.wav in Resources */,
+				26584E0515ECA1F800CDA184 /* engie_see2.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				002F3A2E09D0888800EBEB88 /* SDLMain.m in Sources */,
+				D901F4FE0FC0DBCB0040C290 /* id_pm.cpp in Sources */,
+				D901F5000FC0DBCB0040C290 /* wl_inter.cpp in Sources */,
+				D901F5010FC0DBCB0040C290 /* wl_game.cpp in Sources */,
+				D901F5020FC0DBCB0040C290 /* wl_floorceiling.cpp in Sources */,
+				D901F5030FC0DBCB0040C290 /* wl_draw.cpp in Sources */,
+				D901F5040FC0DBCB0040C290 /* wl_dir3dspr.cpp in Sources */,
+				D901F5050FC0DBCB0040C290 /* wl_debug.cpp in Sources */,
+				D901F5060FC0DBCB0040C290 /* wl_cloudsky.cpp in Sources */,
+				D901F5070FC0DBCB0040C290 /* wl_atmos.cpp in Sources */,
+				D901F5080FC0DBCB0040C290 /* wl_agent.cpp in Sources */,
+				D901F5090FC0DBCB0040C290 /* wl_act2.cpp in Sources */,
+				D901F50A0FC0DBCB0040C290 /* wl_act1.cpp in Sources */,
+				D901F50B0FC0DBCB0040C290 /* signon.cpp in Sources */,
+				D901F50C0FC0DBCB0040C290 /* sdl_winmain.cpp in Sources */,
+				D901F50D0FC0DBCB0040C290 /* id_us_1.cpp in Sources */,
+				D901F50E0FC0DBCB0040C290 /* wl_text.cpp in Sources */,
+				D901F5100FC0DBCB0040C290 /* wl_state.cpp in Sources */,
+				D901F5110FC0DBCB0040C290 /* wl_shade.cpp in Sources */,
+				D901F5120FC0DBCB0040C290 /* wl_play.cpp in Sources */,
+				D901F5130FC0DBCB0040C290 /* wl_parallax.cpp in Sources */,
+				D901F5140FC0DBCB0040C290 /* wl_menu.cpp in Sources */,
+				D901F5150FC0DBCB0040C290 /* wl_main.cpp in Sources */,
+				D901F5160FC0DBCB0040C290 /* id_in.cpp in Sources */,
+				D901F5170FC0DBCB0040C290 /* id_vl.cpp in Sources */,
+				D901F51A0FC0DBCB0040C290 /* id_vh.cpp in Sources */,
+				D901F51B0FC0DBCB0040C290 /* id_ca.cpp in Sources */,
+				26BAD82515E05BB100055F74 /* asmcomp.cpp in Sources */,
+				26BAD82615E05BB100055F74 /* vieasm.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks,
+					"$(FRAMEWORK_SEARCH_PATHS)",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRELINK_LIBS = Yes;
+				PRODUCT_NAME = "Scoot Hard";
+				SDKROOT = macosx10.7;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks,
+					"$(FRAMEWORK_SEARCH_PATHS)",
+				);
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_CFLAGS = "-fast";
+				OTHER_CPLUSPLUSFLAGS = "-fast";
+				PRELINK_LIBS = Yes;
+				PRODUCT_NAME = "Scoot Hard";
+				SDKROOT = macosx10.7;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks,
+					"$(FRAMEWORK_SEARCH_PATHS)",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(HOME)/Library/Frameworks/SDL.framework/Headers",
+					/Library/Frameworks/SDL.framework/Headers,
+					"$(HOME)/Library/Frameworks/SDL.framework/Headers/SDL_mixer",
+					/Library/Frameworks/SDL.framework/Headers/SDL_mixer,
+					"$(HEADER_SEARCH_PATHS)",
+					/Library/Frameworks/SDL_mixer.framework/Versions/A/Headers,
+				);
+				SDKROOT = macosx10.7;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks,
+					"$(FRAMEWORK_SEARCH_PATHS)",
+				);
+				GCC_DYNAMIC_NO_PIC = YES;
+				GCC_FAST_MATH = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(HOME)/Library/Frameworks/SDL.framework/Headers",
+					/Library/Frameworks/SDL.framework/Headers,
+					"$(HOME)/Library/Frameworks/SDL.framework/Headers/SDL_mixer",
+					/Library/Frameworks/SDL.framework/Headers/SDL_mixer,
+					"$(HEADER_SEARCH_PATHS)",
+					/Library/Frameworks/SDL_mixer.framework/Versions/A/Headers,
+				);
+				LLVM_LTO = YES;
+				SDKROOT = macosx10.7;
+				VALID_ARCHS = "i386 x86_64";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Scoot Hard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Scoot Hard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
