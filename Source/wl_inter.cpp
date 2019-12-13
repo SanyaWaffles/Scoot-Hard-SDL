@@ -892,6 +892,8 @@ extern maptype* mapheaderseg[NUMMAPS];
 void
 PreloadGraphics (void)
 {
+	char mapname[17];
+	byte pos = 0;
     DrawLevel ();
     ClearSplitVWB ();           // set up for double buffering in split screen
 
@@ -901,8 +903,15 @@ PreloadGraphics (void)
     
     SETFONTCOLOR(0xf,0x0);
     PrintY = 2;
+	fontnumber = 0;
     US_CPrint("Now Entering:");
-    US_CPrint(mapheaderseg[gamestate.episode*6+gamestate.mapon]->name);
+	while (mapheaderseg[gamestate.mapon + gamestate.episode * 10]->name[pos] >= 32 && pos < 16)
+	{
+		mapname[pos] = mapheaderseg[gamestate.mapon + gamestate.episode * 10]->name[pos];
+		pos++;
+	}
+	mapname[pos] = 0;
+	US_CPrint(mapname);
 
     WindowX = (screenWidth - scaleFactor*224)/2;
     WindowY = (screenHeight - scaleFactor*(STATUSLINES+48))/2;
