@@ -2105,15 +2105,12 @@ void DrawVendingMenu (void)
     fontnumber = 0;
     int aaa = 0;
     SETFONTCOLOR(0xf,0x0);
-    int h = 0, w = 0, mw = 0, len = 0;;
+    int h = 0, w = 0, mw = 0, len = (int)strlen(vendmachine_stuff);
     fontstruct *font;
     
     CA_CacheGrChunk (STARTFONT);
     font = (fontstruct *) grsegs[STARTFONT + fontnumber];
-    
     h = font->height;
-    
-    len = (int)strlen(vendmachine_stuff);
                           
     for (aaa = 0; aaa < len; aaa++)
     {
@@ -2132,12 +2129,12 @@ void DrawVendingMenu (void)
         mw = w + 10;
         
     SETFONTCOLOR(0xa2,0x0);
-        
-    PrintY = (WindowH / 2) - h / 2;
+    // PrintY = WindowH / 2 - h / 2;
+	PrintY = 20;
     PrintX = WindowX = 160 - mw / 2;
-        
-    DrawWindow (WindowX - 5, PrintY - 5, mw + 10, h + 10, 0xbf);
-    DrawOutline (WindowX - 5, PrintY - 5, mw + 10, h + 10, 0, 0xb0);
+	
+    DrawWindow (PrintX - 5, PrintY - 5, mw + 10, h + 10, 0xbf);
+    DrawOutline (PrintX - 5, PrintY - 5, mw + 10, h + 10, 0, 0xb0);
         
     SETFONTCOLOR (0xf, 0x0);
         

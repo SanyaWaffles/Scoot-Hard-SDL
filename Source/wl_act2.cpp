@@ -3037,7 +3037,7 @@ void T_FakeFire (objtype *ob)
     newobj->dir = nodir;
     newobj->angle = iangle;
     newobj->obclass = fireobj;
-    newobj->speed = 0x1200l;
+    newobj->speed = 0x3000l;
     newobj->flags = FL_NEVERMARK;
     newobj->active = ac_yes;
 

@@ -329,7 +329,7 @@ US_ControlPanel (ScanCode scancode)
     {
         if (CP_CheckQuick (scancode))
             return;
-        lastgamemusicoffset = StartCPMusic (TRACK_01);
+        // lastgamemusicoffset = StartCPMusic (TRACK_01);
     }
     // else
        // StartCPMusic (MENUSONG);
@@ -347,7 +347,7 @@ US_ControlPanel (ScanCode scancode)
 #ifdef GOODTIMES
             BossKey ();
 #else*/
-            StartCPMusic(TRACK_01);
+            // StartCPMusic(TRACK_01);
             HelpScreens ();
 //#endif
 //#endif

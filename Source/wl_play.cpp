@@ -589,7 +589,6 @@ void CheckKeys (void)
         int lastoffs;
         if (!gamestate.atvendingmenu)
         {
-            lastoffs = StopMusic();
             LatchDrawPic (20 - 4, 80 - 2 * 8, PAUSEDPIC);
         }
         
@@ -599,7 +598,6 @@ void CheckKeys (void)
         
         if (!gamestate.atvendingmenu)
         {
-            ContinueMusic(lastoffs);
             if (MousePresent && IN_IsInputGrabbed())
                 IN_CenterMouse();     // Clear accumulated mouse movement
             lasttimecount = GetTimeCount();
@@ -631,7 +629,6 @@ void CheckKeys (void)
 
     if ((scan >= sc_F1 && scan <= sc_F9) || scan == sc_Escape || buttonstate[bt_esc])
     {
-        int lastoffs = StopMusic ();
         
         SD_StopSound();
         
@@ -646,8 +643,7 @@ void CheckKeys (void)
         VW_FadeOut();
         if(viewsize != 21)
             DrawPlayScreen ();
-        if (!startgame && !loadedgame)
-            ContinueMusic (lastoffs);
+
         if (loadedgame)
             playstate = ex_abort;
         lasttimecount = GetTimeCount();

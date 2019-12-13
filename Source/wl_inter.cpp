@@ -907,7 +907,7 @@ PreloadGraphics (void)
     US_CPrint("Now Entering:");
 	while (mapheaderseg[gamestate.mapon + gamestate.episode * 10]->name[pos] >= 32 && pos < 16)
 	{
-		mapname[pos] = mapheaderseg[gamestate.mapon + gamestate.episode * 10]->name[pos];
+		mapname[pos] = mapheaderseg[gamestate.mapon + gamestate.episode * 6]->name[pos];
 		pos++;
 	}
 	mapname[pos] = 0;
@@ -1089,7 +1089,7 @@ NonShareware (void)
     US_Print ("So please spread the word!\n");
     US_Print ("Thanks.\n\n");
 #endif
-    US_Print ("Waffle Iron Interactive\n");
+    US_Print ("Waffle Iron Studios\n");
 
     VW_UpdateScreen ();
     VW_FadeIn ();

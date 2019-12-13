@@ -1344,6 +1344,7 @@ void Died (void)
 void GameLoop (void)
 {
     boolean died;
+	boolean previouslydied;
 #ifdef MYPROFILE
     clock_t start,end;
 #endif
@@ -1354,6 +1355,7 @@ restartgame:
     // VW_FadeOut();
     // DrawPlayScreen ();
     died = false;
+	previouslydied = false;
     do
     {
         startgame = false;
@@ -1371,10 +1373,15 @@ restartgame:
         ingame = true;
         if(loadedgame)
         {
+			previouslydied = false;
             ContinueMusic(lastgamemusicoffset);
             loadedgame = false;
         }
-        else StartMusic ();
+		else
+		{
+			if (!previouslydied)
+				StartMusic();
+		}
 
         PreloadGraphics ();
         //   if (!died)
@@ -1418,8 +1425,6 @@ startplayloop:
             goto startplayloop;
         }
 #endif
-
-        StopMusic ();
         ingame = false;
 
         if (demorecord && playstate != ex_warped)
@@ -1434,6 +1439,7 @@ startplayloop:
             case ex_secretlevel:
                 if(viewsize == 21) DrawPlayScreen();
                 gamestate.keys = 0;
+				previouslydied = false;
                 DrawKeys ();
                 VW_FadeOut ();
 
@@ -1526,6 +1532,7 @@ startplayloop:
             case ex_died:
                 Died ();
                 died = true;                    // don't "get psyched!"
+				previouslydied = true;
                 
                 
                 if (gamestate.mapon == 4 && gamestate.episode == 2)

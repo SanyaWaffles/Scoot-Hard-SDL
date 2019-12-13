@@ -1983,6 +1983,7 @@ void    UseVendingMachine ()
             GetMessage(STR_CANDY_BAR_VEND);
             HealSelf(5);
             GiveMoney(-1);
+			SD_PlaySound(AMMO_PICKUP_SND);
         }
         else
         {
@@ -1999,6 +2000,7 @@ void    UseVendingMachine ()
             GetMessage(STR_APPLE);
             HealSelf(10);
             GiveMoney(-5);
+			SD_PlaySound(AMMO_PICKUP_SND);
             if (achievements_unlocked[3] == false)
             {
                 SetAchievement(3);
@@ -2019,6 +2021,7 @@ void    UseVendingMachine ()
             GetMessage(STR_APPLE_PIE_VEND);
             HealSelf(20);
             GiveMoney(-10);
+			SD_PlaySound(AMMO_PICKUP_SND);
         }
         else
         {
@@ -2035,6 +2038,7 @@ void    UseVendingMachine ()
             GetMessage(STR_AMMO_VEND);
             GiveAmmo(40);
             GiveMoney(-15);
+			SD_PlaySound(AMMO_PICKUP_SND);
         }
         else
         {
@@ -2051,6 +2055,7 @@ void    UseVendingMachine ()
             GetMessage(STR_AMMO2_VEND);
             GiveRBAmmo(60);
             GiveMoney(-25);
+			SD_PlaySound(AMMO_PICKUP_SND);
         }
         else
         {
