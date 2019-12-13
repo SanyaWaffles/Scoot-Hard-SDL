@@ -905,7 +905,7 @@ PreloadGraphics (void)
     PrintY = 2;
 	fontnumber = 0;
     US_CPrint("Now Entering:");
-	while (mapheaderseg[gamestate.mapon + gamestate.episode * 10]->name[pos] >= 32 && pos < 16)
+	while (mapheaderseg[gamestate.mapon + gamestate.episode * 6]->name[pos] >= 32 && pos < 16)
 	{
 		mapname[pos] = mapheaderseg[gamestate.mapon + gamestate.episode * 6]->name[pos];
 		pos++;
