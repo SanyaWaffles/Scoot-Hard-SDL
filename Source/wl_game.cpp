@@ -230,6 +230,8 @@ static void ScanInfoPlane(void)
     word     *start;
 
     start = mapsegs[1];
+    auroraspawned = false;
+    numaurorasspots = 0;
     for (y=0;y<mapheight;y++)
     {
         for (x=0;x<mapwidth;x++)

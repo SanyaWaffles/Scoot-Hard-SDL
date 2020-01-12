@@ -21,9 +21,9 @@
 typedef struct
 {
     int32_t planestart[MAPPLANES];
-    word    planelength[MAPPLANES];
+    int32_t planelength[MAPPLANES];
     word    width,height;
-    char    name[16];
+    char    name[32];
 } maptype;
 
 //===========================================================================
